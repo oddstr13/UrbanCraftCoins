@@ -4,11 +4,11 @@
   <artifactId>urbancraftcoins-bukkit</artifactId>
   <version>0.01-SNAPSHOT</version>
   <name>UrbanCraftCoins-Bukkit</name>
-  <url>https://github.com/oddstr13/MinecartMeter</url>
+  <url>https://github.com/oddstr13/UrbanCraftCoins</url>
 
   <!-- directory that contains the lib jars -->
   <properties>
-    <lib.path>/home/oddstr13/prgsrc/UrbanCraftCoins/bukkit_mvn/lib</lib.path>
+    <lib.path>lib</lib.path>
   </properties>
 
   <build>
@@ -28,9 +28,10 @@
     <dependency>
         <groupId>mcpc.craftbukkit</groupId>
         <artifactId>craftbukkit</artifactId>
-        <version>1.2.5-R4.1-MCPC-SNAPSHOT-162</version>
+        <version>SNAPSHOT</version>
         <scope>system</scope>
-        <systemPath>${lib.path}/craftbukkit-1.2.5-R4.1-MCPC-SNAPSHOT-162.jar</systemPath>
+        <!-- Let external script handle mcpc version for us. -->
+        <systemPath>${lib.path}/craftbukkit-mcpc.jar</systemPath>
     </dependency>
   </dependencies>
 </project>
