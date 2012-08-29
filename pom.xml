@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>no.openshell.oddstr13</groupId>
+  <artifactId>urbancraftcoins-bukkit</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>UrbanCraftCoins</name>
+  <url>https://github.com/oddstr13/MinecartMeter</url>
+
+  <!-- directory that contains the lib jars -->
+  <properties>
+    <lib.path>/home/oddstr13/prgsrc/UrbanCraftCoins/bukkit_mvn/lib</lib.path>
+  </properties>
+
+  <build>
+      <plugins>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <version>2.0.2</version>
+              <configuration>
+                  <source>1.5</source>
+                  <target>1.5</target>
+              </configuration>
+          </plugin>
+      </plugins>
+  </build>
+  <dependencies>
+    <dependency>
+        <groupId>mcpc.craftbukkit</groupId>
+        <artifactId>mcpc-craftbukkit</artifactId>
+        <version>LATEST</version>
+<!--        <version>[1.1-R4,1.1-R5)</version> -->
+        <scope>system</scope>
+        <systemPath>${lib.path}/craftbukkit-1.2.5-R4.1-MCPC-SNAPSHOT-162.jar</systemPath>
+    </dependency>
+<!--
+    <dependency>
+        <groupId>org.getspout</groupId>
+        <artifactId>spoutapi</artifactId>
+        <version>1.0.1</version>
+        <scope>system</scope>
+        <systemPath>${lib.path}/SpoutAPI.jar</systemPath>
+    </dependency>
+-->
+<!--
+    <dependency>
+        <groupId>com.nijiko</groupId>
+        <artifactId>permissions</artifactId>
+        <version>2.7.4</version>
+        <scope>system</scope>
+        <systemPath>${lib.path}/Permissions-2.7.4.jar</systemPath>
+    </dependency>
+-->
+  </dependencies>
+</project>

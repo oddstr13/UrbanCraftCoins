@@ -1,0 +1,23 @@
+[
+  {
+    "modid": "mod_UrbanCraftCoins",
+    "name": "UrbanCraft Coins",
+    "description": "A simple mod adding coins, for a physical currency on a server. There is no way to craft the coins.",
+    "version": "0.01",
+    "mcversion": "1.2.5",
+    "url": "http://oddstr13.openshell.no/",
+    "updateUrl": "",
+    "authors": [
+      "Oddstr13"
+    ],
+    "credits": "Coded by Oddstr13",
+    "logoFile": "/logo.png",
+    "screenshots": [
+      "screenshot1.png"
+    ],
+    "parent":"",
+    "dependencies": [
+      "mod_MinecraftForge"
+    ]
+  }
+]
