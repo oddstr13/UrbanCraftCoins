@@ -31,7 +31,7 @@
         <version>SNAPSHOT</version>
         <scope>system</scope>
         <!-- Let external script handle mcpc version for us. -->
-        <systemPath>${lib.path}/craftbukkit-mcpc.jar</systemPath>
+        <systemPath>${lib.path}/mcpc-craftbukkit.jar</systemPath>
     </dependency>
   </dependencies>
 </project>
