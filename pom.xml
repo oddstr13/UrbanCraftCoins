@@ -8,7 +8,7 @@
 
   <!-- directory that contains the lib jars -->
   <properties>
-    <lib.path>lib</lib.path>
+    <lib.path>${basedir}/lib</lib.path>
   </properties>
 
   <build>
