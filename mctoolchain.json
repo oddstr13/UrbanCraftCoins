@@ -1,10 +1,10 @@
 {
-  "usemcpc"      : true,
+  "usemcpc"      : false,
   "mcpc_build"   : "162",
 
-  "usemcp"       : false,
+  "usemcp"       : true,
   "mcpversion"   : "mcp62",
 
-  "useforge"     : false,
+  "useforge"     : true,
   "forgeversion" : "152"
 }
