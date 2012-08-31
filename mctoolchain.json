@@ -1,4 +1,6 @@
 {
+  "modid"        : "mod_UrbanCraftCoins",
+
   "usemcpc"      : true,
   "mcpc_build"   : "162",
 
