@@ -2,15 +2,39 @@ package no.openshell.oddstr13.urbancraftcoins;
 
 import java.util.*;
 import java.io.File;
-import net.minecraft.src.BaseMod;
-import net.minecraft.src.ModLoader;
-import net.minecraft.src.Item;
-import net.minecraft.src.forge.*;
-import net.minecraft.client.Minecraft;
 
-public class mod_UrbanCraftCoins extends BaseMod {
+import net.minecraft.src.Item;
+
+import net.minecraftforge.common.Configuration;
+
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.Init;
+import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+
+@Mod( modid = "mod_UrbanCraftCoins", name="UrbanCraft Coins", version="0.02")
+@NetworkMod (
+    clientSideRequired = true,
+    serverSideRequired = false
+    //channels = {},
+    //packetHandler = PacketHandler.class
+    //connectionHandler = ConnectionHandler.class,//TODO
+)
+
+public class mod_UrbanCraftCoins {
+    @SidedProxy(clientSide = "no.openshell.oddstr13.urbancraftcoins.ClientProxy", serverSide = "no.openshell.oddstr13.urbancraftcoins.CommonProxy")
+    public static CommonProxy proxy; //This object will be populated with the class that you choose for the environment
+    @Instance
+    public static mod_UrbanCraftCoins instance; //The instance of the mod that will be defined, populated, and callable
+
+
+
     // Copper, Iron, Gold, Jade
-    Configuration configuration = new Configuration(new File(Minecraft.getMinecraftDir(), "config/UrbanCraftCoins.cfg"));
+    Configuration configuration = new Configuration(new File("config/UrbanCraftCoins.cfg"));
     int coinStartID;
     int coinStartIDa;
     int spriteLineNumber;
@@ -53,46 +77,44 @@ public class mod_UrbanCraftCoins extends BaseMod {
     public mod_UrbanCraftCoins() {
     }
 
-    @Override
-    public void load(){
+    @Init
+    public void load(FMLInitializationEvent event){
 
         loadConfig();
 
-        MinecraftForgeClient.preloadTexture("/UrbanCraft/UrbanCraftCoins/gui/items.png");
+        coinCopper      = (new ItemCoin(coinStartIDa)).setIconIndex(0+spriteLineAdd).setItemName("coinCopper");
+        coinIron        = (new ItemCoin(coinStartIDa+1)).setIconIndex(1+spriteLineAdd).setItemName("coinIron");
+        coinGold        = (new ItemCoin(coinStartIDa+2)).setIconIndex(2+spriteLineAdd).setItemName("coinGold");
+        coinJade        = (new ItemCoin(coinStartIDa+3)).setIconIndex(3+spriteLineAdd).setItemName("coinJade");
+        coinSilver      = (new ItemCoin(coinStartIDa+4)).setIconIndex(4+spriteLineAdd).setItemName("coinSilver");
+        coinX1          = (new ItemCoin(coinStartIDa+5)).setIconIndex(5+spriteLineAdd).setItemName("coinX1");
+        coinX2          = (new ItemCoin(coinStartIDa+6)).setIconIndex(6+spriteLineAdd).setItemName("coinX2");
+        coinX3          = (new ItemCoin(coinStartIDa+7)).setIconIndex(7+spriteLineAdd).setItemName("coinX3");
+        smallCoinCopper = (new ItemCoin(coinStartIDa+8)).setIconIndex(8+spriteLineAdd).setItemName("smallCoinCopper");
+        smallCoinIron   = (new ItemCoin(coinStartIDa+9)).setIconIndex(9+spriteLineAdd).setItemName("smallCoinIron");
+        smallCoinGold   = (new ItemCoin(coinStartIDa+10)).setIconIndex(10+spriteLineAdd).setItemName("smallCoinGold");
+        smallCoinJade   = (new ItemCoin(coinStartIDa+11)).setIconIndex(11+spriteLineAdd).setItemName("smallCoinJade");
+        smallCoinSilver = (new ItemCoin(coinStartIDa+12)).setIconIndex(12+spriteLineAdd).setItemName("smallCoinSilver");
+        smallCoinX1     = (new ItemCoin(coinStartIDa+13)).setIconIndex(13+spriteLineAdd).setItemName("smallCoinX1");
+        smallCoinX2     = (new ItemCoin(coinStartIDa+14)).setIconIndex(14+spriteLineAdd).setItemName("smallCoinX2");
+        smallCoinX3     = (new ItemCoin(coinStartIDa+15)).setIconIndex(15+spriteLineAdd).setItemName("smallCoinX3");
 
-        coinCopper      = (new UrbanCraftCoinsItem(coinStartIDa)).setIconIndex(0+spriteLineAdd).setItemName("coinCopper");
-        coinIron        = (new UrbanCraftCoinsItem(coinStartIDa+1)).setIconIndex(1+spriteLineAdd).setItemName("coinIron");
-        coinGold        = (new UrbanCraftCoinsItem(coinStartIDa+2)).setIconIndex(2+spriteLineAdd).setItemName("coinGold");
-        coinJade        = (new UrbanCraftCoinsItem(coinStartIDa+3)).setIconIndex(3+spriteLineAdd).setItemName("coinJade");
-        coinSilver      = (new UrbanCraftCoinsItem(coinStartIDa+4)).setIconIndex(4+spriteLineAdd).setItemName("coinSilver");
-        coinX1          = (new UrbanCraftCoinsItem(coinStartIDa+5)).setIconIndex(5+spriteLineAdd).setItemName("coinX1");
-        coinX2          = (new UrbanCraftCoinsItem(coinStartIDa+6)).setIconIndex(6+spriteLineAdd).setItemName("coinX2");
-        coinX3          = (new UrbanCraftCoinsItem(coinStartIDa+7)).setIconIndex(7+spriteLineAdd).setItemName("coinX3");
-        smallCoinCopper = (new UrbanCraftCoinsItem(coinStartIDa+8)).setIconIndex(8+spriteLineAdd).setItemName("smallCoinCopper");
-        smallCoinIron   = (new UrbanCraftCoinsItem(coinStartIDa+9)).setIconIndex(9+spriteLineAdd).setItemName("smallCoinIron");
-        smallCoinGold   = (new UrbanCraftCoinsItem(coinStartIDa+10)).setIconIndex(10+spriteLineAdd).setItemName("smallCoinGold");
-        smallCoinJade   = (new UrbanCraftCoinsItem(coinStartIDa+11)).setIconIndex(11+spriteLineAdd).setItemName("smallCoinJade");
-        smallCoinSilver = (new UrbanCraftCoinsItem(coinStartIDa+12)).setIconIndex(12+spriteLineAdd).setItemName("smallCoinSilver");
-        smallCoinX1     = (new UrbanCraftCoinsItem(coinStartIDa+13)).setIconIndex(13+spriteLineAdd).setItemName("smallCoinX1");
-        smallCoinX2     = (new UrbanCraftCoinsItem(coinStartIDa+14)).setIconIndex(14+spriteLineAdd).setItemName("smallCoinX2");
-        smallCoinX3     = (new UrbanCraftCoinsItem(coinStartIDa+15)).setIconIndex(15+spriteLineAdd).setItemName("smallCoinX3");
-
-        ModLoader.addName(coinCopper, nameCopperCoin);
-        ModLoader.addName(coinIron, nameIronCoin);
-        ModLoader.addName(coinSilver, nameSilverCoin);
-        ModLoader.addName(coinGold, nameGoldCoin);
-        ModLoader.addName(coinJade, nameJadeCoin);
-        ModLoader.addName(coinX1, nameX1Coin);
-        ModLoader.addName(coinX2, nameX2Coin);
-        ModLoader.addName(coinX3, nameX3Coin);
-        ModLoader.addName(smallCoinCopper, nameSmallCopperCoin);
-        ModLoader.addName(smallCoinIron, nameSmallIronCoin);
-        ModLoader.addName(smallCoinSilver, nameSmallSilverCoin);
-        ModLoader.addName(smallCoinGold, nameSmallGoldCoin);
-        ModLoader.addName(smallCoinJade, nameSmallJadeCoin);
-        ModLoader.addName(smallCoinX1, nameSmallX1Coin);
-        ModLoader.addName(smallCoinX2, nameSmallX2Coin);
-        ModLoader.addName(smallCoinX3, nameSmallX3Coin);
+        LanguageRegistry.addName(coinCopper, nameCopperCoin);
+        LanguageRegistry.addName(coinIron, nameIronCoin);
+        LanguageRegistry.addName(coinSilver, nameSilverCoin);
+        LanguageRegistry.addName(coinGold, nameGoldCoin);
+        LanguageRegistry.addName(coinJade, nameJadeCoin);
+        LanguageRegistry.addName(coinX1, nameX1Coin);
+        LanguageRegistry.addName(coinX2, nameX2Coin);
+        LanguageRegistry.addName(coinX3, nameX3Coin);
+        LanguageRegistry.addName(smallCoinCopper, nameSmallCopperCoin);
+        LanguageRegistry.addName(smallCoinIron, nameSmallIronCoin);
+        LanguageRegistry.addName(smallCoinSilver, nameSmallSilverCoin);
+        LanguageRegistry.addName(smallCoinGold, nameSmallGoldCoin);
+        LanguageRegistry.addName(smallCoinJade, nameSmallJadeCoin);
+        LanguageRegistry.addName(smallCoinX1, nameSmallX1Coin);
+        LanguageRegistry.addName(smallCoinX2, nameSmallX2Coin);
+        LanguageRegistry.addName(smallCoinX3, nameSmallX3Coin);
     }
 
     void loadConfig() {
@@ -126,18 +148,8 @@ public class mod_UrbanCraftCoins extends BaseMod {
         configuration.save();
     }
 
-    @Override
-    public String getVersion() {
-        return "0.01";
-    }
-
-    @Override
-    public String getName() {
-        return "UrbanCraftCoins";
-    }
-
-    @Override
-    public String toString() {
-        return getName() + " v" + getVersion();
-    }
+    //@Override
+    //public String toString() {
+    //    return getName() + " v" + getVersion();
+    //}
 }
