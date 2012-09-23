@@ -14,9 +14,10 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 
-@Mod( modid = "mod_UrbanCraftCoins", name="UrbanCraft Coins", version="0.02")
+@Mod( modid = "mod_UrbanCraftCoins", name="UrbanCraft Coins", version="0.03")
 @NetworkMod (
     clientSideRequired = true,
     serverSideRequired = false
@@ -34,7 +35,7 @@ public class mod_UrbanCraftCoins {
 
 
     // Copper, Iron, Gold, Jade
-    Configuration configuration = new Configuration(new File("config/UrbanCraftCoins.cfg"));
+    Configuration configuration;
     int coinStartID;
     int coinStartIDa;
     int spriteLineNumber;
@@ -77,11 +78,15 @@ public class mod_UrbanCraftCoins {
     public mod_UrbanCraftCoins() {
     }
 
+    @PreInit
+    public void preInit(FMLPreInitializationEvent event) {
+        configuration = new Configuration(new File(event.getModConfigurationDirectory(), "UrbanCraftCoins.cfg"));
+        loadConfig();
+    }
+
+
     @Init
     public void load(FMLInitializationEvent event){
-
-        loadConfig();
-
         coinCopper      = (new ItemCoin(coinStartIDa)).setIconIndex(0+spriteLineAdd).setItemName("coinCopper");
         coinIron        = (new ItemCoin(coinStartIDa+1)).setIconIndex(1+spriteLineAdd).setItemName("coinIron");
         coinGold        = (new ItemCoin(coinStartIDa+2)).setIconIndex(2+spriteLineAdd).setItemName("coinGold");
