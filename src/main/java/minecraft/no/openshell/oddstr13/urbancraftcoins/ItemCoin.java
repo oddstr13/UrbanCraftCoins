@@ -6,8 +6,8 @@ import net.minecraft.src.CreativeTabs;
 public class ItemCoin extends Item {
     public ItemCoin(int i) {
         super(i);
-        //setCreativeTab(CreativeTabs.tabMisc);
-        setTabToDisplayOn(CreativeTabs.tabMisc);
+        setCreativeTab(CreativeTabs.tabMisc);
+        //setTabToDisplayOn(CreativeTabs.tabMisc);
     }
 
     @Override
