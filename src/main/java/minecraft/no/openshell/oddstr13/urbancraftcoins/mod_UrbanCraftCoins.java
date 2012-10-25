@@ -143,26 +143,25 @@ public class mod_UrbanCraftCoins {
         configuration.load();
 
         // TODO: Add one config property per item
-        idCopperCoin = configuration.getItem("id", "CopperCoin", 17216).value;
-        idIronCoin   = configuration.getItem("id", "IronCoin",   17217).value;
-        idGoldCoin   = configuration.getItem("id", "GoldCoin",   17218).value;
-        idJadeCoin   = configuration.getItem("id", "JadeCoin",   17219).value;
-        idSilverCoin = configuration.getItem("id", "SilverCoin", 17220).value;
-        idX1Coin     = configuration.getItem("id", "X1Coin",     17221).value;
-        idX2Coin     = configuration.getItem("id", "X2Coin",     17222).value;
-        idX3Coin     = configuration.getItem("id", "X3Coin",     17223).value;
+        idCopperCoin = configuration.getItem("id", "CopperCoin", 17216).getInt();
+        idIronCoin   = configuration.getItem("id", "IronCoin",   17217).getInt();
+        idGoldCoin   = configuration.getItem("id", "GoldCoin",   17218).getInt();
+        idJadeCoin   = configuration.getItem("id", "JadeCoin",   17219).getInt();
+        idSilverCoin = configuration.getItem("id", "SilverCoin", 17220).getInt();
+        idX1Coin     = configuration.getItem("id", "X1Coin",     17221).getInt();
+        idX2Coin     = configuration.getItem("id", "X2Coin",     17222).getInt();
+        idX3Coin     = configuration.getItem("id", "X3Coin",     17223).getInt();
+        idSmallCopperCoin = configuration.getItem("id", "SmallCopperCoin", 17224).getInt();
+        idSmallIronCoin   = configuration.getItem("id", "SmallIronCoin",   17225).getInt();
+        idSmallGoldCoin   = configuration.getItem("id", "SmallGoldCoin",   17226).getInt();
+        idSmallJadeCoin   = configuration.getItem("id", "SmallJadeCoin",   17227).getInt();
+        idSmallSilverCoin = configuration.getItem("id", "SmallSilverCoin", 17228).getInt();
+        idSmallX1Coin     = configuration.getItem("id", "SmallX1Coin",     17229).getInt();
+        idSmallX2Coin     = configuration.getItem("id", "SmallX2Coin",     17230).getInt();
+        idSmallX3Coin     = configuration.getItem("id", "SmallX3Coin",     17231).getInt();
 
-        idSmallCopperCoin = configuration.getItem("id", "SmallCopperCoin", 17224).value;
-        idSmallIronCoin   = configuration.getItem("id", "SmallIronCoin",   17225).value;
-        idSmallGoldCoin   = configuration.getItem("id", "SmallGoldCoin",   17226).value;
-        idSmallJadeCoin   = configuration.getItem("id", "SmallJadeCoin",   17227).value;
-        idSmallSilverCoin = configuration.getItem("id", "SmallSilverCoin", 17228).value;
-        idSmallX1Coin     = configuration.getItem("id", "SmallX1Coin",     17229).value;
-        idSmallX2Coin     = configuration.getItem("id", "SmallX2Coin",     17230).value;
-        idSmallX3Coin     = configuration.getItem("id", "SmallX3Coin",     17231).value;
 
-
-        spriteLineNumber = configuration.get(Configuration.CATEGORY_GENERAL, "spriteLineNumber", 1, Property.Type.INTEGER).value;
+        spriteLineNumber = configuration.get(Configuration.CATEGORY_GENERAL, "spriteLineNumber", 1, Property.Type.INTEGER).getInt();
 
         spriteLineAdd = spriteLineNumber * 16;
 
