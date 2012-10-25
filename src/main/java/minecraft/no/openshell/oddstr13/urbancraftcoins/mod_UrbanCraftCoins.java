@@ -112,14 +112,14 @@ public class mod_UrbanCraftCoins {
         coinX1          = (new ItemCoin(idX1Coin     )).setIconIndex(5  + spriteLineAdd).setItemName("coinX1");
         coinX2          = (new ItemCoin(idX2Coin     )).setIconIndex(6  + spriteLineAdd).setItemName("coinX2");
         coinX3          = (new ItemCoin(idX3Coin     )).setIconIndex(7  + spriteLineAdd).setItemName("coinX3");
-        smallCoinCopper = (new ItemCoin(idSmallCopper)).setIconIndex(8  + spriteLineAdd).setItemName("smallCoinCopper");
-        smallCoinIron   = (new ItemCoin(idSmallIron  )).setIconIndex(9  + spriteLineAdd).setItemName("smallCoinIron");
-        smallCoinGold   = (new ItemCoin(idSmallGold  )).setIconIndex(10 + spriteLineAdd).setItemName("smallCoinGold");
-        smallCoinJade   = (new ItemCoin(idSmallJade  )).setIconIndex(11 + spriteLineAdd).setItemName("smallCoinJade");
-        smallCoinSilver = (new ItemCoin(idSmallSilver)).setIconIndex(12 + spriteLineAdd).setItemName("smallCoinSilver");
-        smallCoinX1     = (new ItemCoin(idSmallX1    )).setIconIndex(13 + spriteLineAdd).setItemName("smallCoinX1");
-        smallCoinX2     = (new ItemCoin(idSmallX2    )).setIconIndex(14 + spriteLineAdd).setItemName("smallCoinX2");
-        smallCoinX3     = (new ItemCoin(idSmallX3    )).setIconIndex(15 + spriteLineAdd).setItemName("smallCoinX3");
+        smallCoinCopper = (new ItemCoin(idSmallCopperCoin)).setIconIndex(8  + spriteLineAdd).setItemName("smallCoinCopper");
+        smallCoinIron   = (new ItemCoin(idSmallIronCoin  )).setIconIndex(9  + spriteLineAdd).setItemName("smallCoinIron");
+        smallCoinGold   = (new ItemCoin(idSmallGoldCoin  )).setIconIndex(10 + spriteLineAdd).setItemName("smallCoinGold");
+        smallCoinJade   = (new ItemCoin(idSmallJadeCoin  )).setIconIndex(11 + spriteLineAdd).setItemName("smallCoinJade");
+        smallCoinSilver = (new ItemCoin(idSmallSilverCoin)).setIconIndex(12 + spriteLineAdd).setItemName("smallCoinSilver");
+        smallCoinX1     = (new ItemCoin(idSmallX1Coin    )).setIconIndex(13 + spriteLineAdd).setItemName("smallCoinX1");
+        smallCoinX2     = (new ItemCoin(idSmallX2Coin    )).setIconIndex(14 + spriteLineAdd).setItemName("smallCoinX2");
+        smallCoinX3     = (new ItemCoin(idSmallX3Coin    )).setIconIndex(15 + spriteLineAdd).setItemName("smallCoinX3");
 
         LanguageRegistry.addName(coinCopper, nameCopperCoin);
         LanguageRegistry.addName(coinIron, nameIronCoin);
