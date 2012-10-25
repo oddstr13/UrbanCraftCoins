@@ -161,7 +161,7 @@ public class mod_UrbanCraftCoins {
         idSmallX3Coin     = configuration.getItem("id", "SmallX3Coin",     17231).getInt();
 
 
-        spriteLineNumber = configuration.get(Configuration.CATEGORY_GENERAL, "spriteLineNumber", 1, Property.Type.INTEGER).getInt();
+        spriteLineNumber = configuration.get(Configuration.CATEGORY_GENERAL, "spriteLineNumber", 1).getInt();
 
         spriteLineAdd = spriteLineNumber * 16;
 
