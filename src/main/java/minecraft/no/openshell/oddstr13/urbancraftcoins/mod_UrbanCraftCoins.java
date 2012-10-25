@@ -5,6 +5,7 @@ import java.io.File;
 
 import net.minecraft.src.Item;
 
+import net.minecraftforge.common.Property;
 import net.minecraftforge.common.Configuration;
 
 import cpw.mods.fml.common.Mod;
@@ -37,8 +38,23 @@ public class mod_UrbanCraftCoins {
 
     // Copper, Iron, Gold, Jade
     Configuration configuration;
-    int coinStartID;
-    int coinStartIDa;
+    int idCopperCoin;
+    int idIronCoin;
+    int idGoldCoin;
+    int idJadeCoin;
+    int idSilverCoin;
+    int idX1Coin;
+    int idX2Coin;
+    int idX3Coin;
+    int idSmallCopperCoin;
+    int idSmallIronCoin;
+    int idSmallGoldCoin;
+    int idSmallJadeCoin;
+    int idSmallSilverCoin;
+    int idSmallX1Coin;
+    int idSmallX2Coin;
+    int idSmallX3Coin;
+
     int spriteLineNumber;
     int spriteLineAdd;
 
@@ -88,22 +104,22 @@ public class mod_UrbanCraftCoins {
 
     @Init
     public void load(FMLInitializationEvent event){
-        coinCopper      = (new ItemCoin(coinStartIDa)).setIconIndex(0+spriteLineAdd).setItemName("coinCopper");
-        coinIron        = (new ItemCoin(coinStartIDa+1)).setIconIndex(1+spriteLineAdd).setItemName("coinIron");
-        coinGold        = (new ItemCoin(coinStartIDa+2)).setIconIndex(2+spriteLineAdd).setItemName("coinGold");
-        coinJade        = (new ItemCoin(coinStartIDa+3)).setIconIndex(3+spriteLineAdd).setItemName("coinJade");
-        coinSilver      = (new ItemCoin(coinStartIDa+4)).setIconIndex(4+spriteLineAdd).setItemName("coinSilver");
-        coinX1          = (new ItemCoin(coinStartIDa+5)).setIconIndex(5+spriteLineAdd).setItemName("coinX1");
-        coinX2          = (new ItemCoin(coinStartIDa+6)).setIconIndex(6+spriteLineAdd).setItemName("coinX2");
-        coinX3          = (new ItemCoin(coinStartIDa+7)).setIconIndex(7+spriteLineAdd).setItemName("coinX3");
-        smallCoinCopper = (new ItemCoin(coinStartIDa+8)).setIconIndex(8+spriteLineAdd).setItemName("smallCoinCopper");
-        smallCoinIron   = (new ItemCoin(coinStartIDa+9)).setIconIndex(9+spriteLineAdd).setItemName("smallCoinIron");
-        smallCoinGold   = (new ItemCoin(coinStartIDa+10)).setIconIndex(10+spriteLineAdd).setItemName("smallCoinGold");
-        smallCoinJade   = (new ItemCoin(coinStartIDa+11)).setIconIndex(11+spriteLineAdd).setItemName("smallCoinJade");
-        smallCoinSilver = (new ItemCoin(coinStartIDa+12)).setIconIndex(12+spriteLineAdd).setItemName("smallCoinSilver");
-        smallCoinX1     = (new ItemCoin(coinStartIDa+13)).setIconIndex(13+spriteLineAdd).setItemName("smallCoinX1");
-        smallCoinX2     = (new ItemCoin(coinStartIDa+14)).setIconIndex(14+spriteLineAdd).setItemName("smallCoinX2");
-        smallCoinX3     = (new ItemCoin(coinStartIDa+15)).setIconIndex(15+spriteLineAdd).setItemName("smallCoinX3");
+        coinCopper      = (new ItemCoin(idCopperCoin )).setIconIndex(0  + spriteLineAdd).setItemName("coinCopper");
+        coinIron        = (new ItemCoin(idIronCoin   )).setIconIndex(1  + spriteLineAdd).setItemName("coinIron");
+        coinGold        = (new ItemCoin(idGoldCoin   )).setIconIndex(2  + spriteLineAdd).setItemName("coinGold");
+        coinJade        = (new ItemCoin(idJadeCoin   )).setIconIndex(3  + spriteLineAdd).setItemName("coinJade");
+        coinSilver      = (new ItemCoin(idSilverCoin )).setIconIndex(4  + spriteLineAdd).setItemName("coinSilver");
+        coinX1          = (new ItemCoin(idX1Coin     )).setIconIndex(5  + spriteLineAdd).setItemName("coinX1");
+        coinX2          = (new ItemCoin(idX2Coin     )).setIconIndex(6  + spriteLineAdd).setItemName("coinX2");
+        coinX3          = (new ItemCoin(idX3Coin     )).setIconIndex(7  + spriteLineAdd).setItemName("coinX3");
+        smallCoinCopper = (new ItemCoin(idSmallCopper)).setIconIndex(8  + spriteLineAdd).setItemName("smallCoinCopper");
+        smallCoinIron   = (new ItemCoin(idSmallIron  )).setIconIndex(9  + spriteLineAdd).setItemName("smallCoinIron");
+        smallCoinGold   = (new ItemCoin(idSmallGold  )).setIconIndex(10 + spriteLineAdd).setItemName("smallCoinGold");
+        smallCoinJade   = (new ItemCoin(idSmallJade  )).setIconIndex(11 + spriteLineAdd).setItemName("smallCoinJade");
+        smallCoinSilver = (new ItemCoin(idSmallSilver)).setIconIndex(12 + spriteLineAdd).setItemName("smallCoinSilver");
+        smallCoinX1     = (new ItemCoin(idSmallX1    )).setIconIndex(13 + spriteLineAdd).setItemName("smallCoinX1");
+        smallCoinX2     = (new ItemCoin(idSmallX2    )).setIconIndex(14 + spriteLineAdd).setItemName("smallCoinX2");
+        smallCoinX3     = (new ItemCoin(idSmallX3    )).setIconIndex(15 + spriteLineAdd).setItemName("smallCoinX3");
 
         LanguageRegistry.addName(coinCopper, nameCopperCoin);
         LanguageRegistry.addName(coinIron, nameIronCoin);
@@ -126,30 +142,47 @@ public class mod_UrbanCraftCoins {
     void loadConfig() {
         configuration.load();
 
-        coinStartID = Integer.parseInt(configuration.getOrCreateIntProperty("coinStartID", Configuration.CATEGORY_GENERAL, 17216).value);
-        spriteLineNumber = Integer.parseInt(configuration.getOrCreateIntProperty("spriteLineNumber", Configuration.CATEGORY_GENERAL, 1).value);
+        // TODO: Add one config property per item
+        idCopperCoin = configuration.getItem("id", "CopperCoin", 17216).value;
+        idIronCoin   = configuration.getItem("id", "IronCoin",   17217).value;
+        idGoldCoin   = configuration.getItem("id", "GoldCoin",   17218).value;
+        idJadeCoin   = configuration.getItem("id", "JadeCoin",   17219).value;
+        idSilverCoin = configuration.getItem("id", "SilverCoin", 17220).value;
+        idX1Coin     = configuration.getItem("id", "X1Coin",     17221).value;
+        idX2Coin     = configuration.getItem("id", "X2Coin",     17222).value;
+        idX3Coin     = configuration.getItem("id", "X3Coin",     17223).value;
+
+        idSmallCopperCoin = configuration.getItem("id", "SmallCopperCoin", 17224).value;
+        idSmallIronCoin   = configuration.getItem("id", "SmallIronCoin",   17225).value;
+        idSmallGoldCoin   = configuration.getItem("id", "SmallGoldCoin",   17226).value;
+        idSmallJadeCoin   = configuration.getItem("id", "SmallJadeCoin",   17227).value;
+        idSmallSilverCoin = configuration.getItem("id", "SmallSilverCoin", 17228).value;
+        idSmallX1Coin     = configuration.getItem("id", "SmallX1Coin",     17229).value;
+        idSmallX2Coin     = configuration.getItem("id", "SmallX2Coin",     17230).value;
+        idSmallX3Coin     = configuration.getItem("id", "SmallX3Coin",     17231).value;
 
 
-        coinStartIDa = coinStartID - 256;
+        spriteLineNumber = configuration.get(Configuration.CATEGORY_GENERAL, "spriteLineNumber", 1, Property.Type.INTEGER).value;
+
         spriteLineAdd = spriteLineNumber * 16;
 
-        nameCopperCoin = configuration.getOrCreateProperty("nameCopperCoin", Configuration.CATEGORY_GENERAL, "Copper Coin").value;
-        nameIronCoin   = configuration.getOrCreateProperty("nameIronCoin", Configuration.CATEGORY_GENERAL, "Iron Coin").value;
-        nameSilverCoin = configuration.getOrCreateProperty("nameSilverCoin", Configuration.CATEGORY_GENERAL, "Silver Coin").value;
-        nameGoldCoin   = configuration.getOrCreateProperty("nameGoldCoin", Configuration.CATEGORY_GENERAL, "Gold Coin").value;
-        nameJadeCoin   = configuration.getOrCreateProperty("nameJadeCoin", Configuration.CATEGORY_GENERAL, "Jade Coin").value;
-        nameX1Coin     = configuration.getOrCreateProperty("nameX1Coin", Configuration.CATEGORY_GENERAL, "X1 Coin").value;
-        nameX2Coin     = configuration.getOrCreateProperty("nameX2Coin", Configuration.CATEGORY_GENERAL, "X2 Coin").value;
-        nameX3Coin     = configuration.getOrCreateProperty("nameX3Coin", Configuration.CATEGORY_GENERAL, "X3 Coin").value;
+        nameCopperCoin = configuration.get("name", "CopperCoin", "Copper Coin", Property.Type.STRING).value;
+        nameIronCoin   = configuration.get("name", "IronCoin",   "Iron Coin",   Property.Type.STRING).value;
+        nameSilverCoin = configuration.get("name", "SilverCoin", "Silver Coin", Property.Type.STRING).value;
+        nameGoldCoin   = configuration.get("name", "GoldCoin",   "Gold Coin",   Property.Type.STRING).value;
+        nameJadeCoin   = configuration.get("name", "JadeCoin",   "Jade Coin",   Property.Type.STRING).value;
+        nameX1Coin     = configuration.get("name", "X1Coin",     "X1 Coin",     Property.Type.STRING).value;
+        nameX2Coin     = configuration.get("name", "X2Coin",     "X2 Coin",     Property.Type.STRING).value;
+        nameX3Coin     = configuration.get("name", "X3Coin",     "X3 Coin",     Property.Type.STRING).value;
 
-        nameSmallCopperCoin = configuration.getOrCreateProperty("nameSmallCopperCoin", Configuration.CATEGORY_GENERAL, "Small Copper Coin").value;
-        nameSmallIronCoin   = configuration.getOrCreateProperty("nameSmallIronCoin", Configuration.CATEGORY_GENERAL, "Small Iron Coin").value;
-        nameSmallSilverCoin = configuration.getOrCreateProperty("nameSmallSilverCoin", Configuration.CATEGORY_GENERAL, "Small Silver Coin").value;
-        nameSmallGoldCoin   = configuration.getOrCreateProperty("nameSmallGoldCoin", Configuration.CATEGORY_GENERAL, "Small Gold Coin").value;
-        nameSmallJadeCoin   = configuration.getOrCreateProperty("nameSmallJadeCoin", Configuration.CATEGORY_GENERAL, "Small Jade Coin").value;
-        nameSmallX1Coin     = configuration.getOrCreateProperty("nameSmallX1Coin", Configuration.CATEGORY_GENERAL, "Small X1 Coin").value;
-        nameSmallX2Coin     = configuration.getOrCreateProperty("nameSmallX2Coin", Configuration.CATEGORY_GENERAL, "Small X2 Coin").value;
-        nameSmallX3Coin     = configuration.getOrCreateProperty("nameSmallX3Coin", Configuration.CATEGORY_GENERAL, "Small X3 Coin").value;
+        nameSmallCopperCoin = configuration.get("name", "SmallCopperCoin", "Small Copper Coin", Property.Type.STRING).value;
+        nameSmallIronCoin   = configuration.get("name", "SmallIronCoin",   "Small Iron Coin",   Property.Type.STRING).value;
+        nameSmallSilverCoin = configuration.get("name", "SmallSilverCoin", "Small Silver Coin", Property.Type.STRING).value;
+        nameSmallGoldCoin   = configuration.get("name", "SmallGoldCoin",   "Small Gold Coin",   Property.Type.STRING).value;
+        nameSmallJadeCoin   = configuration.get("name", "SmallJadeCoin",   "Small Jade Coin",   Property.Type.STRING).value;
+        nameSmallX1Coin     = configuration.get("name", "SmallX1Coin",     "Small X1 Coin",     Property.Type.STRING).value;
+        nameSmallX2Coin     = configuration.get("name", "SmallX2Coin",     "Small X2 Coin",     Property.Type.STRING).value;
+        nameSmallX3Coin     = configuration.get("name", "SmallX3Coin",     "Small X3 Coin",     Property.Type.STRING).value;
 
         configuration.save();
     }
