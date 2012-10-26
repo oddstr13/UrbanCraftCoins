@@ -36,7 +36,6 @@ public class mod_UrbanCraftCoins {
 
 
 
-sdfvsdfvsdfv // Test compile fail handling in the build script
     // Copper, Iron, Gold, Jade
     Configuration configuration;
     int idCopperCoin;
