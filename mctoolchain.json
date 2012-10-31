@@ -1,7 +1,7 @@
 {
   "modid"        : "mod_UrbanCraftCoins",
 
-  "sources"      : "src/main/java", # string (everything innside this dir goes into the source dir) or a list (every item goes into the source dir)
+  "sources"      : "src/main/java",
   "resources"    : "src/main/resources",
 
   "usemcpc"      : false,
