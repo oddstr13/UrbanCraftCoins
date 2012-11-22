@@ -8,8 +8,8 @@
   "mcpc_build"   : "162",
 
   "usemcp"       : true,
-  "mcpversion"   : "mcp719",
+  "mcpversion"   : "mcp723",
 
   "useforge"     : true,
-  "forgeversion" : "337"
+  "forgeversion" : "395"
 }
